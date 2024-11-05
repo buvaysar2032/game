@@ -94,14 +94,14 @@ class Reward extends AppActiveRecord implements ExportConfig
                 'attribute' => 'user_id',
                 'label' => Yii::t('app', 'User ID'),
                 'value' => function ($model) {
-                    return User::getNamesList()[$model->user_id] ?? 'Неизвестный пользователь';
+                    return $model->user->username ?? 'Неизвестный пользователь';
                 },
             ],
             [
                 'attribute' => 'gift_id',
                 'label' => Yii::t('app', 'Gift ID'),
                 'value' => function ($model) {
-                    return Gift::getNamesList()[$model->gift_id] ?? 'Кэшбэка нет';
+                    return $model->gift->cashback_amount . ' кэшбэка' ?? 'Кэшбэка нет';
                 },
             ],
             'created_at:datetime'
