@@ -4,6 +4,7 @@ namespace common\models;
 
 use common\models\AppActiveRecord;
 use common\modules\user\models\User;
+use common\modules\user\Module;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveQuery;
@@ -76,5 +77,16 @@ class Reward extends AppActiveRecord
     final public function getUser(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    public static function getColumns(): array
+    {
+        Module::initI18N();
+        return [
+            'id',
+            'user_id',
+            'gift_id',
+            'created_at:datetime'
+        ];
     }
 }
