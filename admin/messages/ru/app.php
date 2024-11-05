@@ -171,4 +171,9 @@ return [
     'Download Link' => 'Ссылка на скачивание',
     'Count' => 'Кол-во',
     'Date' => 'Дата',
+
+    'Rewards' => 'Награды',
+    'Create Reward' => 'Добавить награду',
+    'Update Reward: {name}' => 'Изменить награду: {name}',
+    'Gift ID' => 'Подарок ID',
 ];
