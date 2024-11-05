@@ -75,6 +75,11 @@ class Reward extends AppActiveRecord implements ExportConfig
         return $this->hasOne(Gift::class, ['id' => 'gift_id']);
     }
 
+    public static function externalAttributes(): array
+    {
+        return ['user.username'];
+    }
+
     final public function getUser(): ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
@@ -85,8 +90,20 @@ class Reward extends AppActiveRecord implements ExportConfig
         Module::initI18N();
         return [
             'id',
-            'user_id',
-            'gift_id',
+            [
+                'attribute' => 'user_id',
+                'label' => Yii::t('app', 'User ID'),
+                'value' => function ($model) {
+                    return User::getNamesList()[$model->user_id] ?? 'Неизвестный пользователь';
+                },
+            ],
+            [
+                'attribute' => 'gift_id',
+                'label' => Yii::t('app', 'Gift ID'),
+                'value' => function ($model) {
+                    return Gift::getNamesList()[$model->gift_id] ?? 'Кэшбэка нет';
+                },
+            ],
             'created_at:datetime'
         ];
     }

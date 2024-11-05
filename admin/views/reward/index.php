@@ -9,9 +9,8 @@ use admin\widgets\sortableGridView\SortableGridView;
 use common\components\export\ExportMenu;
 use common\models\Gift;
 use common\models\Reward;
-use common\modules\user\models\User;
 use kartik\grid\SerialColumn;
-use yii\widgets\ListView;
+use yii\helpers\Url;
 
 /**
  * @var $this         yii\web\View
@@ -52,7 +51,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => SerialColumn::class],
 
             Column::widget(),
-            ColumnSelect2::widget(['attr' => 'user_id', 'items' => User::getNamesList(), 'hideSearch' => true]),
+            ColumnSelect2::widget([
+                'attr' => 'user_id',
+                'viewAttr' => 'user.username',
+                'pathLink' => 'user/user',
+                'editable' => false,
+                'placeholder' => Yii::t('app', 'Search...'),
+                'ajaxSearchConfig' => [
+                    'url' => Url::to(['/user/user/list']),
+                    'searchModel' => $searchModel
+                ]
+            ]),
             ColumnSelect2::widget(['attr' => 'gift_id', 'items' => Gift::getNamesList(), 'hideSearch' => true]),
             ColumnDate::widget(['attr' => 'created_at', 'searchModel' => $searchModel, 'editable' => false]),
 
