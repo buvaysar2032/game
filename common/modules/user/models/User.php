@@ -96,6 +96,14 @@ class User extends AppActiveRecord implements IdentityInterface, ExportConfig
         return strtotime('today') > $this->last_attempt_reset && ($this->attempts_count < Setting::getParameterValue('attempts_count'));
     }
 
+    public static function getNamesList(): array
+    {
+        return self::find()
+            ->select(['username', 'id'])
+            ->indexBy('id')
+            ->column();
+    }
+
     /**
      * {@inheritdoc}
      */

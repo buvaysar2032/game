@@ -1,9 +1,0 @@
-suite_namespace: api\tests\functional
-actor: FunctionalTester
-modules:
-    enabled:
-        - Filesystem
-        - WebDriver
-        - Yii2:
-              part: [init, email]
-

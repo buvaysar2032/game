@@ -37,17 +37,13 @@ $setWritable = [
     'common/assets/source/styles',
     'common/modules/mail/templates',
     'common/runtime',
-    'frontend/assets/source/styles',
-    'frontend/runtime',
     'htdocs/admin/assets',
     'htdocs/api/assets',
-    'htdocs/uploads',
-    'htdocs/assets'
+    'htdocs/uploads'
 ];
 $setCookieValidationKey = [
     'admin/config/main-local.php',
-    'api/config/main-local.php',
-    'frontend/config/main-local.php'
+    'api/config/main-local.php'
 ];
 return [
     'Peppers Development' => [

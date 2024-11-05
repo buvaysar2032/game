@@ -52,4 +52,12 @@ class Gift extends AppActiveRecord
     {
         return $this->hasMany(Reward::class, ['gift_id' => 'id']);
     }
+
+    public static function getNamesList(): array
+    {
+        return self::find()
+            ->select(['CONCAT(cashback_amount, " кэшбэка")', 'id'])
+            ->indexBy('id')
+            ->column();
+    }
 }

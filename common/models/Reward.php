@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use common\components\export\ExportConfig;
 use common\models\AppActiveRecord;
 use common\modules\user\models\User;
 use common\modules\user\Module;
@@ -21,7 +22,7 @@ use yii\helpers\ArrayHelper;
  * @property-read Gift     $gift
  * @property-read User     $user
  */
-class Reward extends AppActiveRecord
+class Reward extends AppActiveRecord implements ExportConfig
 {
     /**
      * {@inheritdoc}

@@ -175,5 +175,5 @@ return [
     'Rewards' => 'Награды',
     'Create Reward' => 'Добавить награду',
     'Update Reward: {name}' => 'Изменить награду: {name}',
-    'Gift ID' => 'Подарок ID',
+    'Gift ID' => 'Подарок',
 ];

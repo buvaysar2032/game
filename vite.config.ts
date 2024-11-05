@@ -26,8 +26,7 @@ export default defineConfig({
 
     rollupOptions: {
       input: {
-        admin: path.resolve(__dirname, 'vue/admin/app.ts'),
-        frontend: path.resolve(__dirname, 'vue/frontend/app.tsx')
+        admin: path.resolve(__dirname, 'vue/admin/app.ts')
       },
       output: {
         manualChunks: {
